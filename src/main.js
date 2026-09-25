@@ -41,10 +41,13 @@ document.querySelector('#app').innerHTML = `
 
 <div id="sub">
   <ion-card>
-    <ion-card-subtitle id="balance"><ion-icon name="wallet-sharp"></ion-icon> Balance: </ion-card-subtitle>
+  <ion-card-title> CURRENT BALANCE: </ion-card-title>
+    <ion-card-subtitle id="balance">₱0.00</ion-card-subtitle>
   </ion-card>
+
   <ion-card>
-    <ion-card-subtitle id="totalSpent"><ion-icon name="trending-down-sharp"></ion-icon> Total Spent:</ion-card-subtitle>
+  <ion-card-title> TOTAL SPENT: </ion-card-title>
+    <ion-card-subtitle id="totalSpent">₱0.00</ion-card-subtitle>
   </ion-card>
 </div>
 
@@ -60,8 +63,7 @@ document.querySelector('#app').innerHTML = `
         <ion-button id="addExp">Enter</ion-button>
       </ion-item><br>
       
-      <ion-item id="showExp"> Total Expense: 
-      </ion-item>
+      <ion-item id="showExp"> Total Expense: </ion-item>
     </ion-card>
   </div>
 
@@ -85,7 +87,7 @@ document.querySelector('#app').innerHTML = `
   <ion-card id="listTitle">
     <ion-title><ion-icon name="calendar-number-sharp"></ion-icon> 
       BUDGET HISTORY 
-    </ion-title>
+    </ion-title><br>
 
     <ion-segment id="showTotal">
       <ion-segment-button value="expense">
@@ -131,7 +133,7 @@ if (savedName) {
   welcome.innerHTML = `WELCOME, ${savedName}!`;
     modalName.style.display = 'none';
 } else {
-    nameOk.addEventListener('click', () => setUserName(nameInput, welcome, modalName));
+    nameOk.addEventListener('click', () => setUserName(nameInput, welcome, modalName)); 
 }
 
 showTotals(segment, expenseList);
@@ -142,7 +144,7 @@ const savedCredits = JSON.parse(localStorage.getItem('credits')) || [];
 
 document.getElementById('showExp').innerHTML = `Total Expense: ₱${sumArray(savedExpenses)}`;
 document.getElementById('showCred').innerHTML = `Total Credits: ₱${sumArray(savedCredits)}`;
-document.getElementById('totalSpent').innerHTML = `Total Spent: ₱${sumArray(savedExpenses)}`;
+document.getElementById('totalSpent').innerHTML = `₱${sumArray(savedExpenses).toFixed(2)}`;
 
 const clearButton = document.getElementById('clearButton');
 clear(clearButton);

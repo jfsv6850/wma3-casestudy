@@ -14,7 +14,7 @@ export function sumArray(array) {
   for (let i = 0; i < array.length; i++) {
     sum += array[i].amount;
   }
-  return sum;
+  return Number(sum.toFixed(2));
 }
 
 export function updateBalance() {
@@ -22,46 +22,46 @@ export function updateBalance() {
   const credits = JSON.parse(localStorage.getItem("credits")) || [];
   const balanceAmount = sumArray(credits) - sumArray(expenses);
   const balanceElement = document.getElementById("balance");
-  if (balanceElement) {
-    balanceElement.innerHTML = `Balance: ₱${balanceAmount.toFixed(2)}`;
-    
-    if (balanceAmount < 0) {
-      balanceElement.style.color = "red";
-      return;
-    } else {
-      balanceElement.style.color = "inherit";
-    }
+    if (balanceElement) {
+    balanceElement.innerHTML = `₱${balanceAmount.toFixed(2)}`;
   }
 }
 
 export function addExpense(inputExp, addExp, showExp, totalSpent, listElement, segment) {
-    addExp.addEventListener('click', () => {
-        const expense = Number(inputExp.value);
-        if (!expense || expense <= 0) {
-            alert("Input a valid value.");
-            return;
-        }
-        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        const creds = JSON.parse(localStorage.getItem('credits')) || [];
-        const currentBalance = sumArray(creds) - sumArray(expenses);
-        if (currentBalance - expense < 0) {
-          alert("WARNING! You have insufficient balance.");
-        }
-      
-        const currentDate = new Date().toLocaleDateString();
-        expenses.push({ amount: expense, date: currentDate });
-        localStorage.setItem('expenses', JSON.stringify(expenses));
+  addExp.addEventListener('click', () => {
+    const expense = Number(inputExp.value);
+    if (!expense || expense <= 0) {
+    alert("Input a valid value.");
+    return;
+  }
+    const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    const creds = JSON.parse(localStorage.getItem('credits')) || [];
+    const currentBalance = sumArray(creds) - sumArray(expenses);
+  
+      if (currentBalance <= 0) {
+        alert("Insufficient Balance. Add credit before recording more expenses.");
+        return;
+      }
+      if (currentBalance - expense < 0) {
+        alert("WARNING! Insufficient balance.");
+        return;
+      }
 
-        if (segment.value == 'expense') {
-            displayList(expenses, listElement, segment);
-        }
+    const currentDate = new Date().toLocaleDateString();
+    expenses.push({ amount: expense, date: currentDate });
+    localStorage.setItem('expenses', JSON.stringify(expenses));
 
-        const total = sumArray(expenses);
-        showExp.innerHTML = `Total Expense: ₱${total}`;
-        totalSpent.innerHTML = `Total Spent: ₱${total.toFixed(2)}`;
-        updateBalance();
-        inputExp.value = '';
-    });
+    if (segment.value == 'expense') {
+      displayList(expenses, listElement, segment);
+    }
+
+    const total = sumArray(expenses);
+
+    showExp.innerHTML = `Total Expense: ₱${total}`;
+    totalSpent.innerHTML = `₱${total.toFixed(2)}`;
+    updateBalance();
+    inputExp.value = '';
+  });
 }
 
 export function addCredits(inputCred, addCred, showCred, listElement, segment) {    
@@ -124,9 +124,9 @@ function displayList(entries, listElement, segment) {
 }
 
 export function clear(clearButton) {
-    clearButton.addEventListener('click', () => {
-        localStorage.clear();
-        alert("Data cleared.")
-        window.location.reload();
+  clearButton.addEventListener('click', () => {
+    localStorage.clear();
+    alert("Data cleared.")
+    window.location.reload();
     });
 }
