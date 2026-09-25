@@ -31,6 +31,7 @@ document.querySelector('#app').innerHTML = `
   </ion-card>
 </div>
 
+
 <div id="head">
   <ion-card>
     <ion-card-header>
@@ -39,6 +40,8 @@ document.querySelector('#app').innerHTML = `
   </ion-card>
 </div>
 
+<div class="layout">
+<div class="contents">
 <div id="sub">
   <ion-card>
   <ion-card-title> CURRENT BALANCE: </ion-card-title>
@@ -49,7 +52,10 @@ document.querySelector('#app').innerHTML = `
   <ion-card-title> TOTAL SPENT: </ion-card-title>
     <ion-card-subtitle id="totalSpent">₱0.00</ion-card-subtitle>
   </ion-card>
+  </div>
 </div>
+
+
 
 <div id="actions">
   <div id="exp">
@@ -101,6 +107,8 @@ document.querySelector('#app').innerHTML = `
   </ion-card>
 
   <ion-list id="expList"> </ion-list>
+</div>
+
 </div>
 
 <br>

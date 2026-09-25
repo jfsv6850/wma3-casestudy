@@ -1,20 +1,25 @@
 ion-card {
   --background: var(--card-bg);
   color: var(--text-main);
-  border: 3px solid #6200b31a;
+  border: 2px solid #6200b31a;
   border-radius: 20px;
   padding: 16px;
   margin: 16px 0;
   font-family: 'Heading-Font', sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 ion-card-title {
   --color: var(--text-main);
   font-family: 'Heading-Font', sans-serif;
-  font-size: 3em;
-  font-weight: bolder;
+  font-size: 2em;
+  font-weight: bolder;;
+  overflow-wrap: break-word;
 }
 ion-card-subtitle {
-  --color: (--text-main);
+  --color: var(--text-main);
   font-size: 1.5em;
   font-weight: bold;
   margin: 10px;
@@ -45,9 +50,10 @@ ion-card-subtitle {
 }
 #bb ion-card-title{
   color: white;
-  font-size: 1.5em;
+  font-size: 1em;
   text-align: left;
-  padding-left: 15px;
+  padding: 12px;
+  padding-left: 35px;
 }
 
 /* WELCOME DIV */
@@ -56,105 +62,88 @@ ion-card-subtitle {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: none;
+  margin-left: 0 auto;
 }
 #head ion-card {
   --background: var(--accent-dark);
-  width: 90%;
+  width: auto;
   padding: 2px;
-  max-width: 900px;
-  margin: 0px 0px 30px 0px;
-  border: 10px ridge #2b123d;
-
-  @media (max-width: 1920px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
-    padding: 0%;
-  }
-
-  @media (max-width: 420px) {
-    font-size: 9px;
-    padding: 0%;
-  }  
+  margin: 0px 0px 20px 0px;
+  border: 2px #2b123d;
 }
 #head ion-card ion-card-title {
   --color: #ffffff;
+  font-size: 2em;
 }
 
 /* SUB DIV */
 #sub {
-  display: flex;
-  justify-content: center;
+  display: grid;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  box-sizing: border-box;
+  gap: 20px;
 }
 #sub ion-card {
-  --background: var(--card-bg);
+  --background: white;
   --color: var(--text-main);
   color: var(--text-main);
   text-align: left;
-  padding: auto;
-  width: fit-content;
-  margin: 10px;
-  display: block;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  
   box-shadow: 0 6px 15px -10px rgba(44, 6, 75, 0.748);
   border: 1.5px solid var(--accent-dark);
   border-left: 10px solid var(--accent-magenta);
-
-  @media (max-width: 1920px) {
-    font-size: 1em;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 420px) {
-    font-size: 0.8em;
-  }  
+  box-sizing: border-box;
 }
 #sub ion-card-subtitle{
   font-size: xxx-large;
 }
 #sub ion-card-title{
-  font-size: smaller;
+  font-size: large;
+  overflow-wrap: anywhere;
 }
 
 /* ACTION DIV */
 #actions{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center
+  display: grid;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  box-sizing: border-box;
 }
 #actions ion-card {
   background-color: #fde9ff96;
   color: var(--primary-purple);
+  text-align: left;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  min-height: 225px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
   border-radius: 20px;
-  width: fit-content;
   border: 1.5px solid var(--accent-dark);
   border-top: 10px solid var(--primary-purple);
-  margin: 10px;
-  margin-top: 50px;
-  box-shadow: 0 5px 15px rgba(98, 0, 179, 0.08);
-
-  @media (max-width: 1920px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
-    padding: 0%;
-  }
-
-  @media (max-width: 420px) {
-    font-size: 9px;
-    padding: 0%;
-  }  
+  box-shadow: 0 5px 15px rgba(98, 0, 179, 0.08); 
 }
 #actions ion-card ion-card-title {
     font-family: 'Heading-Font';
@@ -165,16 +154,18 @@ ion-card-subtitle {
 }
 
 /* BUDGET HISTORY */
-#display{
+#display {
   width: 100%;
-  max-width: 600px;
-  margin: 20px auto 0 auto;
-  padding-right: 4px;
-  display: block;
-  align-items: center;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
 }
 #display ion-card {
-  --background: var(--card-bg);
+  --background: var(--card-accent);
   color: var(--text-main);
   border-radius: 20px;
   display: block;
@@ -183,10 +174,12 @@ ion-card-subtitle {
   width: 100%;
   box-shadow: 0 2px 5px 0px #290628;
   border-top: 10px solid var(--accent-magenta);
+  box-sizing: border-box;
 }
 #display ion-list{
   display:block;
   width: 100%;
+  height: 100%;
   max-width: 600px;
   margin: 1px;
   border-radius: 20px;
@@ -248,7 +241,7 @@ ion-segment-button:hover{
 
 /* ROOT */
 :root {
-  --bg-main: radial-gradient(circle at bottom center, #fde9ff 10%, #eadaff 40%, #f8f6fc 100%);
+  --bg-main: radial-gradient(circle at top center, #fde9ff 30%, #eadaff 40%, #f8f6fc 75%);
   --text-main: #2b123d;
   --text-muted: #6b5b7a;
   --shadow: 0 0 25px 5px rgba(181, 72, 14, 0.25);
@@ -297,48 +290,396 @@ body {
 
 #app {
   width: 100%;
+  height: auto;
+  min-height: 100vh;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: transparent;
-  min-height: 100vh;
-  height: auto;
   color: var(--text-main);
-  display: flex;
-  flex-direction: column;
+  background-color: transparent;
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  ion-card-title {
-    font-size: 1.8rem !important;
-  }
-  
-  #sub ion-card-subtitle {
-    font-size: 2rem !important;
+.layout{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 95%;
+  max-width: 1800px;
+  gap: 20px;
+  align-items: stretch;
+  padding: 30px 60px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.contents{
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+    gap: 10px;
+    box-sizing: border-box;
   }
 
-  /* Compact spacing for landscape mobile */
-  #head {
-    padding-top: 5px;
+  .contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+    min-width: 0;
   }
-  
+
+  #bb ion-card-title{
+    font-size: medium;
+    padding-left: 10px;
+    padding: 1px;
+  }
+  #head {
+    width: 100%;
+    padding-top: 8px;
+  }
+
   #head ion-card {
-    margin-bottom: 15px;
+    width: auto;
+    margin-bottom: 12px;
+    padding: 2px;
+  }
+
+  #head ion-card-title {
+    font-size: 1em;
+    padding: 2px;
+  }
+
+  #sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #sub ion-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 130px;
+    padding: 8px;
+    border-left-width: 6px;
+  }
+
+  #sub ion-card-subtitle {
+    font-size: xx-large;
+    padding: auto;
+  }
+
+  #sub ion-card-title {
+    font-size: small;
+    overflow-wrap: break-word;
+  }
+
+  #actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  #actions ion-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 46;
+    border-top-width: 7px;
+  }
+  #actions ion-card-subtitle {
+    font-size: 20px;
+  }
+  #actions ion-item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #actions ion-button {
+    width: fit-content;
+    font-size: smaller;
+    margin: 10px;
+  }
+
+  #display {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 0;
+    grid-column: auto;
+    grid-row: auto;
+    box-sizing: border-box;
+  }
+
+  #display ion-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  #display ion-list {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 4px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #expList {
+    height: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  #clearButton {
+  width: fit-content;
+  height: 60px;
+  align-self: center;
+  margin-bottom: 70px;
+  }
+
+ion-segment {
+  width: 100%;
+  }
+
+ion-segment-button {
+  min-height: 38px;
+  font-size: 12px;
+}
+}
+
+@media (max-width: 1100px) and (orientation: landscape) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    box-sizing: border-box;
+    gap: 15px;
+    padding: 10px;
+    align-items: start;
+  }
+
+  #bb ion-card {
+    padding: 1.5px;
+  }
+
+  #bb ion-card-title {
+    font-size: medium;
+  }
+
+  #sub ion-card-subtitle {
+    font-size: x-large;
+  }
+
+  #sub ion-card-title {
+    font-size: small;
+  }
+
+  #actions ion-card-subtitle {
+    font-size: 16px;
+  }
+
+  .contents {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #sub, #actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #sub ion-card, #actions ion-card {
+    min-height: 100px;
+    padding: 6px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #display {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    overflow:hidden;
+  }
+
+  #display ion-title {
+    font-size: medium;
+    padding: 0;
+  }
+
+  ion-segment {
+  padding: 0px;
+  margin: 0px;
+  }
+
+  ion-segment-button{
+    padding-bottom: 40px;
   }
 }
 
-@media (max-height: 375px) and (orientation: landscape) {
+@media (max-width: 1200px) and (orientation: portrait) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+    .contents {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #sub, #actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #bb ion-card-title{
+    font-size: medium;
+    padding-left: 10px;
+    padding: 1px;
+  }
+  #head {
+    width: 100%;
+    padding-top: 8px;
+  }
+
   #head ion-card {
-    margin-bottom: 10px;
+    width: auto;
+    margin-bottom: 12px;
     padding: 2px;
   }
-  
-  #actions {
-    margin-top: 10px;
+
+  #head ion-card-title {
+    font-size: 1em;
+    padding: 2px;
+  }
+
+  #sub ion-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 130px;
+    padding: 8px;
+    border-left-width: 6px;
+  }
+
+  #sub ion-card-subtitle {
+    font-size: xx-large;
+    padding: auto;
+  }
+
+  #sub ion-card-title {
+    font-size: small;
+    overflow-wrap: break-word;
   }
   
+  #actions ion-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 46;
+    border-top-width: 7px;
+  }
+  #actions ion-card-subtitle {
+    font-size: 20px;
+  }
+  #actions ion-item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #actions ion-button {
+    width: fit-content;
+    font-size: smaller;
+    margin: 10px;
+  }
+
   #display {
-    max-height: 200px;
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 0;
+    grid-column: auto;
+    grid-row: auto;
+    box-sizing: border-box;
   }
+
+  #display ion-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  #display ion-list {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 4px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #expList {
+    height: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  #clearButton {
+  width: fit-content;
+  height: 60px;
+  align-self: center;
+  margin-bottom: 70px;
+  }
+
+ion-segment {
+  width: 100%;
+  }
+
+ion-segment-button {
+  min-height: 38px;
+  font-size: 12px;
+}
 }
