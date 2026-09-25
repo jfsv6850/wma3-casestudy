@@ -1,0 +1,271 @@
+#app {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--bg-main);
+  min-height: 100svh;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+ion-card {
+  --background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: 0 6px 16px -2px #6200b333, 0 0 8px #b43e8f4d;
+  border: 3px solid #6200b31a;
+  border-radius: 20px;
+  padding: 16px;
+  margin: 16px 0;
+  font-family: 'Heading-Font', sans-serif;
+}
+ion-card-title {
+  --color: var(--text-main);
+  font-family: 'Heading-Font', sans-serif;
+  font-size: 3em;
+  font-weight: bolder;
+}
+ion-card-subtitle {
+  --color: var(--text-muted);
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* APP NAME DIV */
+#bb ion-card {
+  display: block;
+  border-radius: 0%;
+  border: 0px;
+  background-color: var(--accent-dark);
+  margin: 0px;
+
+  @media (max-width: 1920px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 10px;
+  }  
+}
+#bb ion-icon{
+  color: white;
+}
+#bb ion-card-title{
+  color: white;
+  font-size: 1.5em;
+  text-align: left;
+  padding-left: 15px;
+}
+
+/* WELCOME DIV */
+#head {
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#head ion-card {
+  --background: var(--accent-dark);
+  width: 90%;
+  padding: 2px;
+  max-width: 900px;
+  margin: 0px 0px 30px 0px;
+  border: 10px ridge #2b123d;
+
+  @media (max-width: 1920px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    padding: 0%;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 9px;
+    padding: 0%;
+  }  
+}
+#head ion-card ion-card-title {
+  --color: #ffffff;
+}
+
+/* SUB DIV */
+#sub {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+#sub ion-card {
+  --background: var(--card-accent);
+  --color: var(--text-main);
+  color: var(--text-main);
+  text-align: left;
+  padding: auto;
+  width: fit-content;
+  margin: 10px;
+  display: block;
+  box-shadow: 0 6px 15px -10px rgba(44, 6, 75, 0.748);
+  border: 1.5px solid var(--accent-dark);
+  border-left: 10px solid var(--accent-dark);
+
+  @media (max-width: 1920px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 0.8em;
+  }  
+}
+
+/* ACTION DIV */
+#actions{
+  display: flex;
+  justify-content: center
+}
+#actions ion-card {
+  background-color: #fde9ff96;
+  color: var(--primary-purple);
+  border-radius: 20px;
+  width: fit-content;
+  border: 1.5px solid var(--accent-dark);
+  border-top: 10px solid var(--primary-purple);
+  margin: 10px;
+  margin-top: 50px;
+  box-shadow: 0 5px 15px rgba(98, 0, 179, 0.08);
+
+  @media (max-width: 1920px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    padding: 0%;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 9px;
+    padding: 0%;
+  }  
+}
+#actions ion-card ion-card-title {
+    font-family: 'Heading-Font';
+  --color: #6200b3;
+}
+#actions ion-card ion-card-subtitle {
+  --color: #b43e8f;
+}
+
+/* BUDGET HISTORY */
+#display ion-card {
+  --background: var(--card-bg);
+  color: var(--text-main);
+  border-radius: 15px;
+  display: block;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  border-top: 10px solid #290628;
+  box-shadow: 0 6px 6px -20px #6200b333, 0 0 8px #b43e8f4d;
+  border-left: 1.5px solid #6200b333;
+  border-right: 1.5px solid #6200b333;
+}
+#display ion-list{
+  display:block;
+  width: 100%;
+  max-width: 600px;
+  margin: 1px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px 0px #290628;
+}
+#display{
+  width: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  margin: 20px auto 0 auto;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: block;
+  align-items: center;
+}
+#display::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* BUTTONS */
+ion-button {
+  --background: var(--primary-purple);
+  --color: white;
+  --box-shadow: 0 4px 12px rgba(98, 0, 179, 0.2);
+  --border-radius: 8px;
+  font-weight: bold;
+  margin: 10px;
+}
+ion-button:hover {
+  --background: var(--accent-magenta);
+}
+#clearButton{
+  width: fit-content;
+  height: 70px;
+  align-self: center;
+}
+
+/* FONTS */
+@font-face {
+  font-family: 'Helvetica-Font-Family';
+  src: url('./fonts/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Heading-Font';
+  src: url('./fonts/TT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ROOT */
+:root {
+  --bg-main: #f8f6fc;
+  --text-main: #2b123d;
+  --text-muted: #6b5b7a;
+  --shadow: 0 0 25px 5px rgba(181, 72, 14, 0.25);
+  --card-accent: #f2e6f7;
+
+  --primary-purple: #6200b3;
+  --accent-magenta: #b43e8f;
+  --accent-dark: #3b0086;
+
+  --sans: 'Helvetica-Font-Family', system-ui, 'Segoe UI', Roboto, sans-serif;
+  font: 20px/145% var(--sans);
+  color: var(--text-main);
+  background: var(--bg-main);
+
+  --heading: 'TT', 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* IONC-ICONS */
+ion-icon {
+  font-size: 1.2em;
+  vertical-align:text-top;
+  margin-right: 8px;
+  color: var(--primary-purple);
+}
