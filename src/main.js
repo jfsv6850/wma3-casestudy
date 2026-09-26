@@ -2,7 +2,7 @@ import './style.css'
 import '@ionic/core/dist/ionic/ionic.esm.js'
 import '@ionic/core/css/ionic.bundle.css'
 
-import { setUserName } from './counter.js'
+
 import { addExpense } from './counter.js'
 import { addCredits } from './counter.js'
 import { clear } from './counter.js'
@@ -11,19 +11,6 @@ import { updateBalance } from './counter.js'
 import { sumArray } from './counter.js'
 
 document.querySelector('#app').innerHTML = `
-<div id="modalName" 
-  style="position:fixed; 
-  inset: 0; 
-  background:rgba(29, 3, 37, 0.81); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 1000;">
-  <div style="background: white; padding:30px; border-radius:15px;">
-    <ion-input id="nameInput" label="Enter Name" label-placement="floating" style="font-size: 30px;"></ion-input>
-    <ion-button id="nameOk" style="width: 100%; height: 50px; margin-top: 50px;"> OKAY </ion-button>
-  </div>
-</div>
 
 <div id="bb">
   <ion-card>
@@ -54,8 +41,6 @@ document.querySelector('#app').innerHTML = `
   </ion-card>
   </div>
 </div>
-
-
 
 <div id="actions">
   <div id="exp">
@@ -91,9 +76,9 @@ document.querySelector('#app').innerHTML = `
 
 <div id="display">
   <ion-card id="listTitle">
-    <ion-title><ion-icon name="calendar-number-sharp"></ion-icon> 
+    <ion-card-subtitle><ion-icon name="calendar-number-sharp"></ion-icon> 
       BUDGET HISTORY 
-    </ion-title><br>
+    </ion-card-subtitle><br>
 
     <ion-segment id="showTotal">
       <ion-segment-button value="expense">
@@ -113,7 +98,7 @@ document.querySelector('#app').innerHTML = `
 
 <br>
 
-<ion-button id="clearButton"> CLEAR INPUTS </ion-button>
+<ion-button id="clearButton"> RESET </ion-button>
 `
 
 const segment = document.querySelector('ion-segment');
@@ -129,20 +114,6 @@ const inputCred = document.getElementById('inputCred');
 const addCred = document.getElementById('addCred');
 const showCred = document.getElementById('showCred');
 addCredits(inputCred, addCred, showCred, expenseList, segment);
-
-
-const nameInput = document.getElementById('nameInput');
-const welcome = document.getElementById('welcome');
-const modalName = document.getElementById('modalName');
-const nameOk = document.getElementById('nameOk');
-const savedName = localStorage.getItem('name');
-
-if (savedName) {
-  welcome.innerHTML = `WELCOME, ${savedName}!`;
-    modalName.style.display = 'none';
-} else {
-    nameOk.addEventListener('click', () => setUserName(nameInput, welcome, modalName)); 
-}
 
 showTotals(segment, expenseList);
 updateBalance();

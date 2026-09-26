@@ -155,14 +155,14 @@ ion-card-subtitle {
 
 /* BUDGET HISTORY */
 #display {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  grid-column: 2;
-  grid-row: 1;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    overflow:hidden;
 }
 #display ion-card {
   --background: var(--card-accent);
@@ -176,6 +176,11 @@ ion-card-subtitle {
   border-top: 10px solid var(--accent-magenta);
   box-sizing: border-box;
 }
+#display ion-card-subtitle {
+    font-size: x-large;
+    padding: 0%;
+    margin: 0%;
+  }
 #display ion-list{
   display:block;
   width: 100%;
@@ -216,7 +221,12 @@ ion-button:hover {
   height: 70px;
   align-self: center;
 }
+ion-segment {
+  padding: 10px;
+  margin-bottom: 20px;
+  }
 ion-segment-button{
+  padding-bottom: 20px;
   --color: var(--accent-dark);
   --color-checked: var(--primary-purple);
   --indicator-color: var(--accent-dark);
@@ -377,34 +387,28 @@ body {
 
   #sub ion-card-subtitle {
     font-size: xx-large;
-    padding: auto;
+    padding: 2px;
+    overflow: auto;
   }
 
   #sub ion-card-title {
     font-size: small;
-    overflow-wrap: break-word;
+    overflow:auto;
   }
 
-  #actions {
-    display: flex;
-    flex-direction: column;
+  #actions, #sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     width: 100%;
-    gap: 12px;
+    margin: 0;
   }
 
-  #actions ion-card {
+#actions ion-card {
     width: 100%;
     min-width: 0;
     min-height: 0;
-    padding: 46;
-    border-top-width: 7px;
-  }
-  #actions ion-card-subtitle {
-    font-size: 20px;
-  }
-  #actions ion-item {
-    width: 100%;
-    box-sizing: border-box;
+    padding: 2px;
   }
   #actions ion-button {
     width: fit-content;
@@ -423,14 +427,19 @@ body {
     box-sizing: border-box;
   }
 
+  #display ion-card-subtitle{
+  font-size: medium;
+  padding: 1px;
+
+  }
   #display ion-card {
+    height:fit-content;
     width: 100%;
     max-width: 600px;
     margin: 0;
     box-sizing: border-box;
     overflow: hidden;
   }
-
   #display ion-list {
     width: 100%;
     max-width: 600px;
@@ -441,27 +450,33 @@ body {
   }
 
   #expList {
-    height: 250px;
+    height: 150px;
     max-height: 250px;
     overflow-y: auto;
     box-sizing: border-box;
   }
-
+ion-segment {
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+  }
+ion-segment-button{
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+}
   #clearButton {
   width: fit-content;
   height: 60px;
+  border-radius: 15px;
   align-self: center;
   margin-bottom: 70px;
   }
-
-ion-segment {
-  width: 100%;
+#showExp, #showCred, #expList {
+    font-size: x-small;
+    overflow: auto;
+  }  
+ion-label{
+    font-size: small;
   }
-
-ion-segment-button {
-  min-height: 38px;
-  font-size: 12px;
-}
 }
 
 @media (max-width: 1100px) and (orientation: landscape) {
@@ -485,6 +500,8 @@ ion-segment-button {
 
   #sub ion-card-subtitle {
     font-size: x-large;
+    overflow: auto;
+    padding: 2px;
   }
 
   #sub ion-card-title {
@@ -492,7 +509,8 @@ ion-segment-button {
   }
 
   #actions ion-card-subtitle {
-    font-size: 16px;
+    font-size: 14px;
+    padding: 0%;
   }
 
   .contents {
@@ -530,18 +548,54 @@ ion-segment-button {
     overflow:hidden;
   }
 
-  #display ion-title {
-    font-size: medium;
+  #display ion-card-subtitle{
+  font-size: medium;
+  padding: 1px;
+
+  }
+  #display ion-card {
+    height:fit-content;
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  #display ion-list {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 4px;
     padding: 0;
+    box-sizing: border-box;
   }
 
-  ion-segment {
-  padding: 0px;
-  margin: 0px;
+  #expList {
+    height: 150px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-sizing: border-box;
   }
-
-  ion-segment-button{
-    padding-bottom: 40px;
+ion-segment {
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+  }
+ion-segment-button{
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+  --color: var(--accent-dark);
+  --color-checked: var(--primary-purple);
+  --indicator-color: var(--accent-dark);
+}
+ion-segment-button:hover{
+  --color: var(--accent-dark);
+}
+#showExp, #showCred, #expList {
+    font-size: x-small;
+    overflow: auto;
+  }  
+ion-label{
+    font-size: small;
   }
 }
 
@@ -616,7 +670,7 @@ ion-segment-button {
     width: 100%;
     min-width: 0;
     min-height: 0;
-    padding: 46;
+    padding: 4px;
     border-top-width: 7px;
   }
   #actions ion-card-subtitle {
@@ -643,14 +697,19 @@ ion-segment-button {
     box-sizing: border-box;
   }
 
+  #display ion-card-subtitle{
+  font-size: large;
+  padding: 1px;
+
+  }
   #display ion-card {
+    height:fit-content;
     width: 100%;
     max-width: 600px;
     margin: 0;
     box-sizing: border-box;
     overflow: hidden;
   }
-
   #display ion-list {
     width: 100%;
     max-width: 600px;
@@ -661,25 +720,29 @@ ion-segment-button {
   }
 
   #expList {
-    height: 250px;
+    height: 150px;
     max-height: 250px;
     overflow-y: auto;
     box-sizing: border-box;
   }
-
+ion-segment {
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+  }
+ion-segment-button{
+  padding-bottom: 0%;
+  margin-bottom: 0px;
+  --color: var(--accent-dark);
+  --color-checked: var(--primary-purple);
+  --indicator-color: var(--accent-dark);
+}
+ion-segment-button:hover{
+  --color: var(--accent-dark);
+}
   #clearButton {
   width: fit-content;
   height: 60px;
   align-self: center;
   margin-bottom: 70px;
   }
-
-ion-segment {
-  width: 100%;
-  }
-
-ion-segment-button {
-  min-height: 38px;
-  font-size: 12px;
-}
 }

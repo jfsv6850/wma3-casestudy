@@ -1,14 +1,3 @@
-export function setUserName(nameInput, welcome, modal) {
-  const userName = nameInput.value.toUpperCase();
-  if (!userName || userName.length > 10) {
-    alert("Please enter a valid name (Maximum 10 characters).");
-    return;
-  }
-  localStorage.setItem("name", userName);
-  welcome.innerHTML = `WELCOME, ${userName}!`;
-  modal.style.display = "none";
-}
-
 export function sumArray(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
